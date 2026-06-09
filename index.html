@@ -871,9 +871,10 @@ window.addEventListener('DOMContentLoaded', function(){
 
 function goHome(){
   showView('v-pay');
-  document.getElementById('nav-right').innerHTML=`
-    <button class="nbtn ghost" onclick="showLogin('owner')">Property owner login</button>`;
-  document.getElementById('nav-logo').innerHTML=`<svg width="22" height="28" viewBox="0 0 32 40" fill="none"><circle cx="16" cy="13" r="10" fill="#0B7A5A"/><circle cx="16" cy="13" r="5" fill="#fff"/><path d="M16 23 L16 39" stroke="#0B7A5A" stroke-width="3" stroke-linecap="round"/></svg><span style="color:var(--text);">Spot<span style="color:#0B7A5A;">ly</span></span>`;
+  var nr=document.getElementById('nav-right');
+  if(nr) nr.innerHTML='<button class="nbtn ghost" onclick="showLogin(\x27owner\x27)">Property owner login</button>';
+  var nl=document.getElementById('nav-logo');
+  if(nl) nl.innerHTML='<svg width="22" height="28" viewBox="0 0 32 40" fill="none"><circle cx="16" cy="13" r="10" fill="#0B7A5A"/><circle cx="16" cy="13" r="5" fill="#fff"/><path d="M16 23 L16 39" stroke="#0B7A5A" stroke-width="3" stroke-linecap="round"/></svg><span style="color:var(--text)">Spot<span style="color:#0B7A5A">ly</span></span>';
 }
 
 function showView(id){
