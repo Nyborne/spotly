@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;1,400&family=DM+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 40'%3E%3Ccircle cx='16' cy='13' r='10' fill='%230B7A5A'/%3E%3Ccircle cx='16' cy='13' r='5' fill='white'/%3E%3Cpath d='M16 23 L16 39' stroke='%230B7A5A' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -40,11 +41,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 /* NAV */
 .nav{
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 20px;height:52px;
+  padding:0 24px;height:64px;
   border-bottom:0.5px solid var(--border);
   background:var(--bg);position:sticky;top:0;z-index:200;
 }
-.logo{font-size:17px;font-weight:500;letter-spacing:-0.4px;color:var(--text);cursor:pointer;}
+.logo{font-size:22px;font-weight:500;letter-spacing:-0.5px;color:var(--text);cursor:pointer;display:flex;align-items:center;}
 .logo span{color:var(--green);}
 .nav-right{display:flex;gap:6px;align-items:center;}
 .nbtn{
@@ -73,18 +74,18 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
   background:var(--bg);border:0.5px solid var(--border);
   border-radius:var(--rxl);padding:28px;width:100%;max-width:420px;
 }
-.pay-card h1{font-size:22px;font-weight:500;letter-spacing:-0.5px;margin-bottom:4px;}
-.pay-card .sub{font-size:13px;color:var(--text2);margin-bottom:24px;}
+.pay-card h1{font-size:26px;font-weight:500;letter-spacing:-0.5px;margin-bottom:6px;}
+.pay-card .sub{font-size:17px;color:var(--text2);margin-bottom:24px;}
 
-.flabel{font-size:12px;color:var(--text2);margin-bottom:6px;display:block;font-weight:500;letter-spacing:0.1px;}
+.flabel{font-size:16px;color:var(--text2);margin-bottom:8px;display:block;font-weight:500;}
 .finput{
-  width:100%;padding:11px 13px;font-size:15px;
+  width:100%;padding:13px 14px;font-size:16px;
   border:0.5px solid var(--border2);border-radius:var(--r);
   background:var(--bg);color:var(--text);font-family:var(--font);
   outline:none;transition:border-color 0.15s,box-shadow 0.15s;
 }
 .finput:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(29,158,117,0.13);}
-.finput.plate{font-family:var(--mono);font-size:20px;letter-spacing:2px;text-transform:uppercase;text-align:center;padding:13px;}
+.finput.plate{font-family:var(--mono);font-size:22px;letter-spacing:2px;text-transform:uppercase;text-align:center;padding:15px;}
 .fgroup{margin-bottom:18px;}
 
 .dur-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
@@ -103,17 +104,17 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
   display:flex;justify-content:space-between;align-items:center;
   padding:14px 0;border-top:0.5px solid var(--border);margin-top:10px;
 }
-.total-label{font-size:14px;color:var(--text2);}
-.total-amt{font-size:24px;font-weight:500;}
+.total-label{font-size:16px;color:var(--text2);}
+.total-amt{font-size:26px;font-weight:500;}
 
 .secure-note{
   display:flex;align-items:center;gap:6px;
-  font-size:12px;color:var(--text3);
+  font-size:14px;color:var(--text3);
   padding:10px 13px;background:var(--bg2);
   border-radius:var(--r);margin-bottom:12px;width:100%;max-width:420px;
 }
 .pay-btn{
-  width:100%;max-width:420px;padding:15px;font-size:16px;font-weight:500;
+  width:100%;max-width:420px;padding:17px;font-size:18px;font-weight:500;
   background:var(--green);color:#fff;border:none;
   border-radius:var(--r);cursor:pointer;font-family:var(--font);
   transition:background 0.15s;
@@ -295,17 +296,23 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="logo" onclick="goHome()">Spot<span>ly</span></div>
+  <div class="logo" onclick="goHome()" style="display:flex;align-items:center;gap:8px;">
+    <svg width="22" height="28" viewBox="0 0 32 40" fill="none">
+      <circle cx="16" cy="13" r="10" fill="#0B7A5A"/>
+      <circle cx="16" cy="13" r="5" fill="#fff"/>
+      <path d="M16 23 L16 39" stroke="#0B7A5A" stroke-width="3" stroke-linecap="round"/>
+    </svg>
+    <span style="color:var(--text);">Spot<span style="color:#0B7A5A;">ly</span></span>
+  </div>
   <div class="nav-right" id="nav-right">
     <button class="nbtn ghost" onclick="showLogin('owner')">Property owner login</button>
-    <button class="nbtn ghost" onclick="showLogin('admin')">Admin</button>
   </div>
 </nav>
 
 <!-- ═══════════════ CUSTOMER: PAY ═══════════════ -->
 <div id="v-pay" class="view active">
   <div class="pay-wrap">
-    <div class="lot-chip" id="lot-chip"><i class="ti ti-map-pin" style="font-size:12px;"></i> <span id="lot-name-display">Main St Lot</span></div>
+    <div class="lot-chip" id="lot-chip"><i class="ti ti-map-pin" style="font-size:12px;"></i> <span id="lot-name-display">Loading...</span></div>
     <div class="pay-card">
       <h1>Pay for parking</h1>
       <div class="sub">Enter your plate, pick your time, pay in seconds.</div>
@@ -317,8 +324,8 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
         <label class="flabel">Rate</label>
         <div style="background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--r);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;">
           <div>
-            <div style="font-size:16px;font-weight:500;">$10.00 flat rate</div>
-            <div style="font-size:12px;color:var(--text2);margin-top:2px;">Valid for the full day</div>
+            <div style="font-size:18px;font-weight:500;">$10.00 flat rate</div>
+            <div style="font-size:12px;color:var(--text2);margin-top:3px;font-size:14px;">Valid for the full day</div>
           </div>
           <span class="pill active" style="font-size:12px;">Selected</span>
         </div>
@@ -330,7 +337,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
     </div>
     <div style="height:10px;"></div>
     <div class="secure-note"><i class="ti ti-lock" style="font-size:14px;"></i> Secured by Stripe — Apple Pay &amp; Google Pay accepted</div>
-    <button class="pay-btn" onclick="submitPay()">Pay $<span id="pay-btn-amt">10.00</span></button>
+    <button class="pay-btn" id="pay-submit-btn" onclick="submitPay()">Pay $<span id="pay-btn-amt">10.00</span></button>
   </div>
 </div>
 
@@ -767,11 +774,35 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 <script>
 let durHrs=8, durPrice=10, loginTarget='owner';
 
+// Read lot from URL param e.g. yourspotly.com/?lot=main-st
+function initLot(){
+  const params=new URLSearchParams(window.location.search);
+  const lotId=params.get('lot');
+  const lotNames={
+    'main-st':'Main St Lot',
+    'oak-ave':'Oak Ave Lot',
+    'commerce':'Commerce Garage',
+  };
+  const chip=document.getElementById('lot-chip');
+  const nameEl=document.getElementById('lot-name-display');
+  if(lotId && lotNames[lotId]){
+    nameEl.textContent=lotNames[lotId];
+  } else if(lotId){
+    // Unknown lot ID — show generic
+    nameEl.textContent='Parking Lot';
+  } else {
+    // No lot ID — hide chip, show generic message
+    chip.style.display='none';
+    document.querySelector('#v-pay h1').textContent='Pay for parking';
+  }
+}
+window.addEventListener('DOMContentLoaded', initLot);
+
 function goHome(){
   showView('v-pay');
   document.getElementById('nav-right').innerHTML=`
-    <button class="nbtn ghost" onclick="showLogin('owner')">Property owner login</button>
-    <button class="nbtn ghost" onclick="showLogin('admin')">Admin</button>`;
+    <button class="nbtn ghost" onclick="showLogin('owner')">Property owner login</button>`;
+  document.querySelector('.logo').innerHTML=`<svg width="22" height="28" viewBox="0 0 32 40" fill="none"><circle cx="16" cy="13" r="10" fill="#0B7A5A"/><circle cx="16" cy="13" r="5" fill="#fff"/><path d="M16 23 L16 39" stroke="#0B7A5A" stroke-width="3" stroke-linecap="round"/></svg><span style="color:var(--text);">Spot<span style="color:#0B7A5A;">ly</span></span>`;
 }
 
 function showView(id){
@@ -791,13 +822,16 @@ function pickDur(btn,hrs,price){
 function submitPay(){
   const plate=document.getElementById('plate').value.trim().toUpperCase();
   if(!plate){document.getElementById('plate').focus();return;}
-  const now=new Date(); now.setHours(now.getHours()+durHrs);
-  document.getElementById('c-plate').textContent=plate;
-  document.getElementById('c-lot').textContent=document.getElementById('lot-name-display').textContent;
-  document.getElementById('c-dur').textContent='Flat rate (all day)';
-  document.getElementById('c-exp').textContent=now.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit'});
-  document.getElementById('c-paid').textContent='$'+durPrice.toFixed(2);
-  showView('v-success');
+  // Stripe integration pending — payments not yet live
+  const btn=document.getElementById('pay-submit-btn');
+  btn.textContent='Payments coming soon';
+  btn.style.background='#6b6b67';
+  btn.disabled=true;
+  setTimeout(()=>{
+    btn.textContent='Pay $'+durPrice.toFixed(2);
+    btn.style.background='';
+    btn.disabled=false;
+  },3000);
 }
 
 function resetPay(){
@@ -819,7 +853,7 @@ function showLogin(target){
 function doLogin(){
   const pass=document.getElementById('l-pass').value;
   const err=document.getElementById('l-err');
-  const ok=(loginTarget==='admin'&&pass==='admin1234')||(loginTarget==='owner'&&pass==='owner1234');
+  const ok=(loginTarget==='owner'&&pass==='yourspotly101907');
   if(ok){
     err.style.display='none';
     if(loginTarget==='admin'){
@@ -831,7 +865,7 @@ function doLogin(){
     }
   } else {
     err.style.display='block';
-    err.innerHTML='<i class="ti ti-alert-circle" style="font-size:13px;margin-right:5px;"></i>Wrong password. Demo: <strong>'+(loginTarget==='admin'?'admin1234':'owner1234')+'</strong>';
+    err.innerHTML='<i class="ti ti-alert-circle" style="font-size:13px;margin-right:5px;"></i>Incorrect password.';
   }
 }
 
