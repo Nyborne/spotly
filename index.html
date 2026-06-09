@@ -551,14 +551,18 @@ var ownerTabs=[
   {id:'ot-activity',icon:'ti-calendar',label:'Daily activity'},
   {id:'ot-revenue',icon:'ti-coin',label:'My earnings'}
 ];
-function ownerTab(id,btn){
+function switchOwnerTab(id){
   currentOwnerTab=id;
   document.querySelectorAll('#v-owner .dash-panel').forEach(function(p){p.classList.remove('active');});
   document.querySelectorAll('#desktop-sidebar .sidebar-item').forEach(function(b){b.classList.remove('on');});
-  document.getElementById(id).classList.add('active');
-  if(btn) btn.classList.add('on');
+  var panel=document.getElementById(id);
+  if(panel) panel.classList.add('active');
   buildMobileMenu();
   closeMobileMenu();
+}
+function ownerTab(id,btn){
+  switchOwnerTab(id);
+  if(btn) btn.classList.add('on');
 }
 function buildMobileMenu(){
   var container=document.getElementById('mobile-menu-items');
@@ -567,11 +571,28 @@ function buildMobileMenu(){
     var div=document.createElement('div');
     div.className='mobile-menu-item'+(tab.id===currentOwnerTab?' on':'');
     div.innerHTML='<i class="ti '+tab.icon+'"></i>'+tab.label;
-    div.onclick=function(){ownerTab(tab.id,null);};
+    (function(tabId){
+      div.addEventListener('touchend',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        switchOwnerTab(tabId);
+      });
+      div.addEventListener('click',function(e){
+        e.stopPropagation();
+        switchOwnerTab(tabId);
+      });
+    })(tab.id);
     container.appendChild(div);
   });
-  container.innerHTML+=`<div class="mobile-menu-divider"></div>
-    <div class="mobile-menu-item" onclick="goHome()"><i class="ti ti-logout"></i> Sign out</div>`;
+  var divider=document.createElement('div');
+  divider.className='mobile-menu-divider';
+  container.appendChild(divider);
+  var signout=document.createElement('div');
+  signout.className='mobile-menu-item';
+  signout.innerHTML='<i class="ti ti-logout"></i> Sign out';
+  signout.addEventListener('touchend',function(e){e.preventDefault();goHome();});
+  signout.addEventListener('click',function(){goHome();});
+  container.appendChild(signout);
 }
 function openMobileMenu(){
   document.getElementById('mobile-menu').classList.add('open');
